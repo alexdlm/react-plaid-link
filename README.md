@@ -43,18 +43,21 @@ a more holistic understanding of the various Link options.
 
 ```jsx
 <PlaidLink
+  autoOpen={true}
   clientName="plaidname"
-  env="tartan"
+  env="sandbox"
   institution={null}
   publicKey="test_key"
   longtail={true}
-  product="auth"
+  product={["auth", "transactions"]}
   token="test,wells,connected"
   selectAccount={true}
   webhook="https://webhooks.test.com"
   onSuccess={this.handleOnSuccess}
   onExit={this.handleOnExit}
   onLoad={this.handleOnLoad}
+  loadingRender={()=><img src="spinner.gif"/>}
+  errorRender={()=><BigRedBox>Failed to load</BigRedBox>}
   />
 ```
 

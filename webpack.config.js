@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/PlaidLink',
+    './src/entry.js'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -19,7 +19,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        loaders: ['react-hot', 'babel'],
+        loaders: ['react-hot-loader', 'babel-loader'],
         include: path.join(__dirname, 'src'),
       },
     ],

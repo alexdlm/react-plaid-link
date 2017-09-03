@@ -2,7 +2,7 @@
 
 const React = require("react");
 const ReactDOM = require("react-dom");
-const PlaidLink = require("./PlaidLink");
+const {PlaidLink} = require("./PlaidLink");
 const PropTypes = require("prop-types");
 
 class LinkButton extends React.Component {

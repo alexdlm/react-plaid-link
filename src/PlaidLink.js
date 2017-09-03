@@ -123,7 +123,7 @@ PlaidLink.propTypes = {
   publicKey: PropTypes.string.isRequired,
 
   // The Plaid product you wish to use, either auth or connect.
-  product: PropTypes.arrayOf(PropTypes.oneOf(['auth', 'transaction', 'identity', 'income'])).isRequired,
+  product: PropTypes.arrayOf(PropTypes.oneOf(['auth', 'transactions', 'identity'])).isRequired,
 
   // Specify an existing user's public token to launch Link in update mode.
   // This will cause Link to open directly to the authentication step for
@@ -170,6 +170,10 @@ PlaidLink.defaultProps = {
   selectAccount: false
 };
 
-module.exports = scriptLoader(
+const AsyncPlaidLink = scriptLoader(
   'https://cdn.plaid.com/link/v2/stable/link-initialize.js'
 )(PlaidLink);
+
+module.exports = {
+  PlaidLink: AsyncPlaidLink
+};

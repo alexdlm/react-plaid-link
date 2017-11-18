@@ -4,8 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
     './src/entry.js'
   ],
   output: {
@@ -19,9 +18,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        loaders: ['react-hot-loader', 'babel-loader'],
+        loaders: ['react-hot-loader/webpack', 'babel-loader'],
         include: path.join(__dirname, 'src'),
       },
     ],
   },
+  devServer: {
+    hot: true,
+  }
 };

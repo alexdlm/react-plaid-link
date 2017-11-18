@@ -4,6 +4,7 @@ const React = require("react");
 const ReactDOM = require("react-dom");
 const {PlaidLink} = require("./PlaidLink");
 const PropTypes = require("prop-types");
+const {AppContainer} = require("react-hot-loader");
 
 class LinkButton extends React.Component {
 
@@ -59,4 +60,18 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.getElementById('root')
+    );
+};
+
+render(App);
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./entry', () => { render(App) })
+}
